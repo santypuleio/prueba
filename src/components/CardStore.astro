@@ -1,0 +1,81 @@
+---
+interface Props {
+  img: string;
+  title: string;
+  body: string;
+  slug: string;
+  cantidad: string;
+  precio: string;
+}
+
+const { img, title, body, slug, cantidad, precio } = Astro.props;
+---
+
+<li class="link-card">
+    <img src={img} alt={title} class="product-image">
+    <div class="product-details">
+      <h2 class="product-title">{title}</h2>
+      <p class="product-body">{body}</p>
+    </div>
+</li>
+  
+  <style>
+    .link-card {
+      display: flex;
+      align-items: center;
+      background-color: #222;
+      color: white;
+      border-radius: 7px;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+      transition: background-color 0.3s;
+    }
+  
+    .link-card:last-child {
+      margin-bottom: 0;
+    }
+  
+    .product-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+    }
+  
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem;
+      flex: 1;
+    }
+  
+    .product-title {
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      margin: 0 0 0.5rem 0;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+  
+    .product-body {
+      margin: 0;
+      color: white;
+      font-size: 1rem;
+    }
+  
+    .link-card:is(:hover, :focus-within) {
+      background-color: #333;
+    }
+  
+    .link-card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  
+    .more-info-button:hover {
+      background-color: #009acd;
+    }
+  </style>

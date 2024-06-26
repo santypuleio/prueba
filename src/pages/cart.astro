@@ -1,0 +1,353 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+---
+
+<Navbar />
+<!DOCTYPE html>
+<head>
+    <script>
+
+        let sumadorPrecio = 0;
+        //Vaciar Carrito:
+        const botonVaciarCarrito = document.querySelector("#carrito-acciones-vaciar");
+        botonVaciarCarrito.addEventListener('click', () => {
+            let productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito"));
+            productosEnCarrito = [];
+            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+            localStorage.removeItem("productos-en-carrito");
+            contenedorCarritoProductos.innerHTML = '';
+            console.log("Carrito Vaciado.");
+
+            sumadorPrecio = 0;
+            localStorage.setItem('sumadorPrecio', sumadorPrecio.toString());
+
+            document.getElementById("total").innerText = "$" + sumadorPrecio;
+        })
+
+        //Cargar datos de todos los productos: 
+        const contenedorCarritoProductos = document.querySelector("#carrito-productos");
+        const datosProductos = 
+        [
+            {
+                slug:"macbook-air-m2",
+                img:"https://i.pinimg.com/originals/b2/39/21/b2392123978a9779bb008b049c57fbec.png",
+                title:"MacBook Air 13 M2 chip",
+                body:"Up to 1.4x faster than MacBook Air with the M1 chip21, Support for one external display, Support for Wi-Fi 6",
+                href:"",
+                precio: "499999"
+            },
+            {
+                img:"https://www.pngall.com/wp-content/uploads/5/Apple-IPad-PNG-File-Download-Free.png",
+                title:"MacBook Air 13 M2 chip",
+                body:"Up to 1.4x faster than MacBook Air with the M1 chip21, Support for one external display, Support for Wi-Fi 6",
+                href:"",
+                slug:"ipad1",
+                precio: "299999"
+            },
+            {
+                img:"https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-2515306895701eqxj.png",
+                title:"MacBook Air 13 M2 chip",
+                body:"Up to 1.4x faster than MacBook Air with the M1 chip21, Support for one external display, Support for Wi-Fi 6",
+                href:"",
+                slug:"Iphone1",
+                precio: "100000"
+            },
+            {
+                img:"https://i.pinimg.com/originals/cc/8b/70/cc8b70ed6b81820f019dc1359dd8875d.png",
+                title:"MacBook Air 13 M2 chip",
+                body:"Up to 1.4x faster than MacBook Air with the M1 chip21, Support for one external display, Support for Wi-Fi 6",
+                href:"",
+                slug:"watch",
+                precio: "50000"
+            },
+            {
+                img:"https://www.pngall.com/wp-content/uploads/14/Airpod-Transparent.png",
+                title:"MacBook Air 13 M2 chip",
+                body:"Up to 1.4x faster than MacBook Air with the M1 chip21, Support for one external display, Support for Wi-Fi 6",
+                href:"",
+                slug:"airpods",
+                precio: "30000"
+            },
+            {
+                img:"https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_TV_4K_4gen_64gb.png",
+                title:"MacBook Air 13 M2 chip",
+                body:"Up to 1.4x faster than MacBook Air with the M1 chip21, Support for one external display, Support for Wi-Fi 6",
+                href:"",
+                slug:"tv",
+                precio: "49999"
+            }
+        ]
+        
+        //Agregar productos al carrito:
+        const productosEnCarrito = JSON.parse(localStorage.getItem("productos-en-carrito"));
+        console.log(productosEnCarrito);
+        if(productosEnCarrito != null){
+            productosEnCarrito.forEach(producto => {
+                
+                const slug = producto.id;
+                let cantidad = producto.cantidad;
+                const productoEncontrado = datosProductos.find(producto => producto.slug === slug);
+
+                if(productoEncontrado){
+                    console.log("Producto encontrado.", productoEncontrado);
+                    const precioProducto = parseFloat(productoEncontrado.precio);
+                    sumadorPrecio = sumadorPrecio + (precioProducto * cantidad);
+                    const div = document.createElement("div");
+                    div.classList.add("carrito-producto");
+                    div.innerHTML = `
+                        <li style="display: flex;align-items: center;background-color: #222;color: white;border-radius: 7px;margin-bottom: 0.5rem;overflow: hidden;transition: background-color 0.3s;" class="link-card">
+                            <img style="width: 150px;height: 150px;object-fit: cover;border-top-left-radius: 7px;border-bottom-left-radius: 7px;" src="${productoEncontrado.img}" alt="${productoEncontrado.title}" class="product-image">
+                            <div style="display: flex;flex-direction: column;justify-content: center;padding: 1rem;flex: 1;" class="product-details">
+                                <div style="display: flex"> 
+                                    <h2 style="text-decoration: none;color: rgb(255, 255, 255);margin: 0 0 0.5rem 0;font-size: 1.25rem;font-weight: bold;" class="product-title">${productoEncontrado.title}</h2>
+                                    <button class="borrar-un-producto" data-slug="${slug}" style="margin-left: 20px">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M4 7l16 0" />
+                                            <path d="M10 11l0 6" />
+                                            <path d="M14 11l0 6" />
+                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <p style="margin: 0;color: white;font-size: 1rem;" class="product-body">${productoEncontrado.body}</p>
+                                <div style="display: in-line"> 
+                                    <p>Precio (x unidad): $ ${productoEncontrado.precio}</p>
+                                    <p id="cant-producto-${slug}">Cantidad: ${cantidad}</p>
+                                    <div class="botones-cantidad" style = "margin-left: 10px;">
+                                        <button class="aumentar-cantidad" data-slug="${slug}">+</button>
+                                        <button class="disminuir-cantidad" data-slug="${slug}">-</button>
+                                    <div>
+                                    <p id="precio-total-producto-${producto.id}">Precio (total producto): $ ${precioProducto * cantidad}</p>
+                                </div>
+                            </div>
+                        </li>
+                    `;
+                    
+                    contenedorCarritoProductos.append(div);
+
+                    localStorage.setItem('sumadorPrecio', sumadorPrecio.toString());
+                    document.addEventListener("DOMContentLoaded", function() {
+                            if(localStorage.getItem('sumadorPrecio') == null){
+                                document.getElementById("total").innerText = "$0";    
+                            }
+                            document.getElementById("total").innerText = "$" + localStorage.getItem('sumadorPrecio');
+                    })
+
+                    //Borrar UN producto:
+                    const botonEliminarProducto = div.querySelector(`.borrar-un-producto[data-slug="${slug}"]`);
+                    botonEliminarProducto.addEventListener('click', () => {
+                        productosEnCarrito.splice(productosEnCarrito.findIndex(p => p.id === slug), 1);
+                        localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+                        div.remove();
+                        sumadorPrecio -= precioProducto * cantidad;
+                        localStorage.setItem('sumadorPrecio', sumadorPrecio.toString());
+                        document.getElementById("total").innerText = "$" + sumadorPrecio;
+                    });
+
+
+                    //Sumar y restar cantidad con botones:
+                    const botonAumentarCantidad = div.querySelector(`.aumentar-cantidad[data-slug="${slug}"]`);
+                    botonAumentarCantidad.addEventListener('click', () => {
+                        cantidad++;
+                        document.getElementById(`cant-producto-${slug}`).innerText = `Cantidad: ${cantidad}`;
+                        document.getElementById(`precio-total-producto-${slug}`).innerText = `Precio (total producto): $ ${precioProducto * cantidad}`;
+
+                        // Actualizar la cantidad en el array productosEnCarrito
+                        productosEnCarrito.find(p => p.id === slug).cantidad = cantidad;
+
+                        document.getElementById(`cant-producto-${producto.id}`).innerText = `Cantidad: ${producto.cantidad}`;
+                        const nuevoPrecioTotalProducto = precioProducto * producto.cantidad;
+                        document.getElementById(`precio-total-producto-${producto.id}`).innerText = `Precio (total producto): $ ${nuevoPrecioTotalProducto}`;
+                        // Recalcular el precio total del carrito
+                        sumadorPrecio += precioProducto;
+                        localStorage.setItem('sumadorPrecio', sumadorPrecio.toString());
+                        document.getElementById("total").innerText = "$" + sumadorPrecio;
+                    });
+                    
+                    const botonDisminuirCantidad = div.querySelector(`.disminuir-cantidad[data-slug="${slug}"]`);
+                    botonDisminuirCantidad.addEventListener('click', () => {
+                        if (cantidad > 1) {
+                            cantidad--;
+                            document.getElementById(`cant-producto-${slug}`).innerText = `Cantidad: ${cantidad}`;
+                            document.getElementById(`precio-total-producto-${slug}`).innerText = `Precio (total producto): $ ${precioProducto * cantidad}`;
+
+                            // Actualizar la cantidad en el array productosEnCarrito
+                            productosEnCarrito.find(p => p.id === slug).cantidad = cantidad;
+
+                            // Recalcular el precio total del carrito
+                            sumadorPrecio -= precioProducto;
+                            localStorage.setItem('sumadorPrecio', sumadorPrecio.toString());
+                            document.getElementById("total").innerText = "$" + sumadorPrecio;
+                        }
+                    });
+                }
+                else{
+                    console.log("Producto no encontrado:", slug);
+                }
+            });
+        }
+        
+       //Carrito Boton Comprar ahora
+        let mensaje = "";
+
+        const buyNowButton = document.querySelector(".carrito-acciones-comprar");
+        buyNowButton.addEventListener('click', () => {
+            let mensaje = "Hola, me gustaría comprar: \n";
+            for(let i = 0; i < productosEnCarrito.length; i++){
+                mensaje += "Producto: " + productosEnCarrito[i].id + ". Cantidad:  " + productosEnCarrito[i].cantidad + "\n";
+            }
+            mensaje += "Precio Total: $" + sumadorPrecio;
+            console.log(mensaje);
+            const url = `https://wa.me/+5491168740019?text=${encodeURIComponent(mensaje)}`;
+            window.location.href = url;
+        }
+    );
+        
+    </script>
+    <title>Carrito</title>
+</head>
+<body>
+    <h2 class="titulo-principal">Carrito</h2>
+
+    <div id="contenedor-carrito" class="contenedor-carrito">
+        
+        <div id="carrito-productos" class="carrito-productos">
+            
+        </div>
+
+        <div id="carrito-acciones" class="carrito-acciones">
+            <div class="carrito-acciones-izquierda">
+                <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Vaciar Carrito
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M4 7l16 0" />
+                        <path d="M10 11l0 6" />
+                        <path d="M14 11l0 6" />
+                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                    </svg>    
+                </button>
+            </div>
+
+            <div class="carrito-acciones-derecha">
+                <div class="carrito-acciones-total">
+                    <p>Total:</p>
+                    <p id="total">$0</p>
+                </div>
+                <button class="carrito-acciones-comprar">Comprar ahora
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                        <path d="M17 17h-11v-14h-2" />
+                        <path d="M6 5l14 1l-1 7h-13" />
+                      </svg>
+                </button>
+            </div>
+        
+        </div>
+    </div>
+</body>
+<Footer />
+<style>
+    body {
+            color: #ffffff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 200px;
+        }
+
+        .titulo-principal {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2em;
+            color: #ff6f61;
+        }
+
+        .contenedor-carrito {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        .carrito-vacio {
+            text-align: center;
+            font-size: 1.2em;
+            color: #b0b0b0;
+        }
+
+        .carrito-productos {
+            margin: 20px 0;
+            list-style: none;
+            display: inline-block;  
+        }
+
+        .carrito-acciones {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .carrito-acciones-izquierda, .carrito-acciones-derecha {
+            display: flex;
+            align-items: center;
+        }
+
+        .carrito-acciones-vaciar, .carrito-acciones-comprar {
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight:600;
+        }
+
+        .carrito-acciones-vaciar:hover, .carrito-acciones-comprar:hover {
+            background-color: #ff3b2e;
+        }
+
+        .carrito-acciones-total {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .carrito-acciones-total p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        #total {
+            margin-left: 10px;
+            font-size: 1.5em;
+            color: #ff6f61;
+        }
+</style>
+
+
+<style>
+    body{
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        margin-top: 5rem;
+    }
+</style>

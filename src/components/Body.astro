@@ -1,0 +1,52 @@
+<fragment>
+    <div class="body-container">
+      <div class="card-container">
+        <slot />
+      </div>
+    </div>
+  </fragment>
+  
+  <style>
+    .body-container {
+      padding: 2rem; /* Ajusta el padding según tu diseño */
+    }
+  
+    .section-title {
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: #333; /* Color del título */
+    }
+  
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; /* Distribuye las tarjetas uniformemente */
+      gap: 1rem;
+      list-style: none; /* Quita los puntos de la lista */
+      padding: 0; /* Quita el relleno predeterminado de la lista */
+      margin: 0; /* Quita el margen predeterminado de la lista */
+    }
+  
+    .card {
+      flex: 1; /* Hace que las tarjetas ocupen el ancho disponible */
+      max-width: calc(25% - 0.75rem); /* Limita el ancho máximo de las tarjetas */
+    }
+  
+    @media (max-width: 1024px) {
+      .card {
+        max-width: calc(33.33% - 0.75rem); /* Limita el ancho máximo de las tarjetas para pantallas más pequeñas */
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .card {
+        max-width: calc(50% - 0.75rem); /* Limita el ancho máximo de las tarjetas para dispositivos móviles */
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .card {
+        max-width: 100%; /* Hace que las tarjetas ocupen todo el ancho en dispositivos móviles */
+      }
+    }
+  </style>

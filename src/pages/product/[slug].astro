@@ -1,0 +1,278 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import Body from '../../components/Body.astro';
+
+export async function getStaticPaths() {
+
+  const productos = [
+    {
+      slug: "macbook-air-m2",
+      title: "MacBook Air 13 M2 chip",
+      description1: "Potente Rendimiento: El MacBook Air 13 M2 cuenta con el nuevo chip M2 para un rendimiento rapido y eficiente en todas las tareas.",
+      description2: "Pantalla Brillante: Disfruta de una pantalla Retina de alta resolucion para imagenes nitidas y colores vibrantes.",
+      description3: "Ligero: Delgado y ligero, es perfecto para llevarlo a todas partes.",
+      description4: "Conectividad Avanzada: Wi-Fi 6, Bluetooth 5.0 y puertos USB-C para una conectividad rapida y estable.",
+      description5: "Sistema Operativo macOS: Con macOS, disfruta de una experiencia informatica fluida y segura, con acceso a una amplia gama de aplicaciones.",
+      img : "https://i.pinimg.com/originals/b2/39/21/b2392123978a9779bb008b049c57fbec.png",
+      precio: "$499999",
+    },
+    {
+      slug: "ipad1",
+      title: "Ipad 1",
+      description1: "Pantalla Retina: El iPad presenta una pantalla Retina brillante y nítida que ofrece colores vibrantes y una alta resolución para una experiencia visual envolvente.",
+      description2: "Potente Chip: Equipado con el último chip de Apple, el iPad ofrece un rendimiento rápido y fluido, lo que permite ejecutar aplicaciones exigentes y multitarea sin problemas.",
+      description3: "Diseño Elegante: Con un diseño delgado y elegante, el iPad es fácil de sostener y transportar, perfecto para su uso en movimiento o en casa.",
+      description4: "Compatibilidad con Apple Pencil: Con la compatibilidad con Apple Pencil, el iPad se convierte en una herramienta creativa versátil, ideal para tomar notas, dibujar o editar fotos con precisión.",
+      description5: "iOS Integrado: Con iOS, el iPad ofrece una experiencia intuitiva y familiar, con acceso a una amplia gama de aplicaciones en la App Store y funciones como Split View para una productividad mejorada.",
+      img : "https://www.pngall.com/wp-content/uploads/5/Apple-IPad-PNG-File-Download-Free.png",
+      precio: "$299999"
+    },
+    {
+      slug: "Iphone1",
+      title: "Iphone 1",
+      description1: "Pantalla Super Retina: El iPhone cuenta con una impresionante pantalla Super Retina que ofrece colores vibrantes, negros profundos y una alta resolución para una experiencia visual cautivadora.",
+      description2: "Potente Chip A14 Bionic: Impulsado por el potente chip A14 Bionic, el iPhone ofrece un rendimiento excepcional y eficiencia energética, lo que permite ejecutar aplicaciones exigentes y juegos con fluidez.",
+      description3: "Diseño Elegante y Duradero: Con un diseño elegante y duradero, el iPhone combina vidrio y acero inoxidable en un cuerpo delgado y resistente, que se siente cómodo en la mano y es resistente al agua y al polvo.",
+      description4: "Cámara Avanzada: Equipado con una cámara avanzada con tecnología de vanguardia, el iPhone captura fotos y videos impresionantes en cualquier situación, desde retratos con efecto bokeh hasta imágenes de poca luz con calidad profesional.",
+      description5: "iOS Integrado: Con iOS, el iPhone ofrece una experiencia de usuario fluida y segura, con acceso a una amplia gama de aplicaciones en la App Store y funciones innovadoras como Face ID para desbloqueo facial seguro y Apple Pay para pagos rápidos y seguros.",
+      img: "https://purepng.com/public/uploads/large/purepng.com-apple-iphone-xappleapple-iphonephonesmartphonemobile-devicetouch-screeniphone-xiphone-10electronicsobjects-2515306895701eqxj.png",
+      precio: "$100000"
+    },
+    {
+      slug: "watch",
+      title: "Apple Watch",
+      description1: "Pantalla Retina Siempre Activa: El Apple Watch cuenta con una pantalla Retina Siempre Activa que muestra la hora y la información importante sin necesidad de levantar la muñeca, lo que permite una rápida y discreta consulta.",
+      description2: "Potente Chip S6: Impulsado por el chip S6 de Apple, el Apple Watch ofrece un rendimiento rápido y eficiente, lo que permite ejecutar aplicaciones y funciones con fluidez y rapidez.",
+      description3: "Diseño Elegante y Personalizable: Con un diseño elegante y una variedad de correas y estilos disponibles, el Apple Watch se adapta a tu estilo personal y es perfecto para cualquier ocasión, ya sea en el gimnasio o en una reunión formal.",
+      description4: "Funciones de Salud y Actividad: Equipado con funciones avanzadas de salud y actividad, como el monitoreo del ritmo cardíaco, el seguimiento del sueño y la detección de caídas, el Apple Watch te ayuda a mantenerte saludable y activo durante todo el día.",
+      description5: "Integración con el Ecosistema de Apple: Con la integración perfecta con el ecosistema de Apple, el Apple Watch te permite acceder a tus aplicaciones, música y notificaciones favoritas directamente desde tu muñeca, manteniéndote conectado y productivo en todo momento.",
+      img: "https://i.pinimg.com/originals/cc/8b/70/cc8b70ed6b81820f019dc1359dd8875d.png",
+      precio: "$50000"
+    },
+    {
+      slug: "airpods",
+      title: "AirPods Pro",
+      description1: "Calidad de Sonido Inigualable: Los AirPods ofrecen una calidad de sonido excepcional con bajos potentes y agudos claros, brindando una experiencia auditiva envolvente y nítida.",
+      description2: "Conexión Inalámbrica Instantánea: Gracias al chip H1 de Apple, los AirPods se conectan instantáneamente a tu dispositivo iOS tan pronto como los sacas del estuche de carga, lo que te permite disfrutar de tu música sin interrupciones.",
+      description3: "Diseño Cómodo y Ergonómico: Con un diseño ergonómico y liviano, los AirPods se adaptan cómodamente a tus oídos y son ideales para su uso durante todo el día, ya sea en la oficina, en el gimnasio o en movimiento.",
+      description4: "Funciones Inteligentes: Equipados con sensores ópticos y acelerómetros, los AirPods ofrecen funciones inteligentes como pausar la música automáticamente cuando te los quitas y reanudarla cuando te los vuelves a poner.",
+      description5: "Integración Perfecta con el Ecosistema de Apple: Con la integración perfecta con el ecosistema de Apple, los AirPods te permiten acceder a Siri con solo decir Oye Siri, responder llamadas, cambiar de canción y controlar el volumen con comandos de voz simples.",
+      img: "https://www.pngall.com/wp-content/uploads/14/Airpod-Transparent.png",
+      precio: "$30000"
+    },
+    {
+      slug: "tv",
+      title: "Apple TV",
+      description1: "Calidad de Transmisión 4K HDR: El Apple TV ofrece una experiencia de transmisión inigualable con calidad de imagen 4K HDR, que brinda colores vibrantes, contrastes intensos y una claridad excepcional para una experiencia visual inmersiva.",
+      description2: "Potente Chip A12 Bionic: Impulsado por el potente chip A12 Bionic de Apple, el Apple TV garantiza un rendimiento fluido y rápido al navegar por aplicaciones, jugar juegos y reproducir contenido multimedia de alta resolución.",
+      description3: "Diseño Compacto y Elegante: Con un diseño compacto y elegante, el Apple TV se integra perfectamente en cualquier espacio de entretenimiento, ya sea montado en la pared o colocado junto al televisor, agregando un toque de estilo moderno a tu hogar.",
+      description4: "Sistema Operativo tvOS: Con el sistema operativo tvOS, el Apple TV ofrece una experiencia de usuario intuitiva y personalizable, con acceso a una amplia variedad de aplicaciones, juegos y servicios de transmisión en la App Store.",
+      description5: "Integración con el Ecosistema de Apple: Con la integración perfecta con el ecosistema de Apple, el Apple TV te permite disfrutar del contenido de tus dispositivos iOS y Mac en la pantalla grande, así como controlar el Apple TV con tu iPhone, iPad o Apple Watch a través de la aplicación Remote.",
+      img: "https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_TV_4K_4gen_64gb.png",
+      precio: "$49999"
+    }
+
+  ];
+  return productos.map(({ slug, title, description1, description2, description3, description4, description5, img, precio}) => {
+    return {
+      params: { slug },
+      props: { slug, title, description1, description2, description3, description4, description5, img, precio},
+    };
+  });
+}
+const { slug, title, description1, description2, description3, description4, description5, img, precio } = Astro.props;
+
+---
+<Layout>
+  <Navbar />
+  <Body>
+    <img src={img} alt="" class="product-image" />
+    <div class="product-info-container">
+      <h2 class="product-title">{title}</h2>
+      <p class="product-price">{precio}</p>
+      <div class="medios-pago">
+        <p class="product-description">Medios de pago</p>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-bank" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 21l18 0" />
+          <path d="M3 10l18 0" />
+          <path d="M5 6l7 -3l7 3" />
+          <path d="M4 10l0 11" />
+          <path d="M20 10l0 11" />
+          <path d="M8 14l0 3" />
+          <path d="M12 14l0 3" />
+          <path d="M16 14l0 3" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-cashapp" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M17.1 8.648a.568 .568 0 0 1 -.761 .011a5.682 5.682 0 0 0 -3.659 -1.34c-1.102 0 -2.205 .363 -2.205 1.374c0 1.023 1.182 1.364 2.546 1.875c2.386 .796 4.363 1.796 4.363 4.137c0 2.545 -1.977 4.295 -5.204 4.488l-.295 1.364a.557 .557 0 0 1 -.546 .443h-2.034l-.102 -.011a.568 .568 0 0 1 -.432 -.67l.318 -1.444a7.432 7.432 0 0 1 -3.273 -1.784v-.011a.545 .545 0 0 1 0 -.773l1.137 -1.102c.214 -.2 .547 -.2 .761 0a5.495 5.495 0 0 0 3.852 1.5c1.478 0 2.466 -.625 2.466 -1.614c0 -.989 -1 -1.25 -2.886 -1.954c-2 -.716 -3.898 -1.728 -3.898 -4.091c0 -2.75 2.284 -4.091 4.989 -4.216l.284 -1.398a.545 .545 0 0 1 .545 -.432h2.023l.114 .012a.544 .544 0 0 1 .42 .647l-.307 1.557a8.528 8.528 0 0 1 2.818 1.58l.023 .022c.216 .228 .216 .569 0 .773l-1.057 1.057z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-coin-bitcoin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+          <path d="M9 8h4.09c1.055 0 1.91 .895 1.91 2s-.855 2 -1.91 2c1.055 0 1.91 .895 1.91 2s-.855 2 -1.91 2h-4.09" />
+          <path d="M10 12h4" />
+          <path d="M10 7v10v-9" />
+          <path d="M13 7v1" />
+          <path d="M13 16v1" />
+        </svg>
+      </div>
+      <div class="retiro">
+        <p class="product-description">Formas de retiro</p>
+        <div class="retiro1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-truck" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
+          </svg>
+          <p class="product-description">Envio GRATIS a Capital Federal</p>
+        </div>
+        
+        <div class="retiro1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 21l18 0" />
+            <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
+            <path d="M5 21l0 -10.15" />
+            <path d="M19 21l0 -10.15" />
+            <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+          </svg>
+          <p class="product-description">Retiro GRATIS en sucursal</p>
+        </div>
+      </div>
+      <div class="button-container">
+        
+        <script>
+          import { getProductosEnCarrito } from './productContainer'; 
+          const button = document.querySelector('button.add-to-cart-button');
+          button.addEventListener('click', () => {
+            const productId = button.id;
+            let productosEnCarrito = getProductosEnCarrito();
+            let productoEnCarrito = productosEnCarrito.find(producto => producto.id === productId);
+            if(productoEnCarrito){
+              productoEnCarrito.cantidad++;
+              console.log("Ya está en el carrito.")
+            }
+            else{
+                  // Si el producto no está en el carrito, agrégalo con cantidad 1
+                  productoEnCarrito = {
+                      id: productId,
+                      cantidad: 1
+                    };
+                    productosEnCarrito.push(productoEnCarrito);
+                    console.log(`Se agregó el producto ${productId} al carrito.`);
+                }
+            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
+            console.log(productosEnCarrito);
+            alert("El producto fue agregado al carrito");
+          });
+        </script>
+        <button class="add-to-cart-button" id={slug}>Agregar al carrito</button>
+    
+      </div>
+    
+    
+    </div>
+    <div class="description-container">
+      <h2 class="product-description">Descripcion</h2>
+      <div class="linea"></div>
+      <p class="product-description">{description1}</p>
+      <p class="product-description">{description2}</p>
+      <p class="product-description">{description3}</p>
+      <p class="product-description">{description4}</p>
+      <p class="product-description">{description5}</p>
+    </div>
+  </Body>
+  <Footer />
+</Layout>
+
+<style>
+  /* Estilo del contenedor del cuerpo */
+  body{
+    background-color: #333;
+  }
+
+/* Estilo de la imagen */
+.product-image {
+  width: 40%; /* Ocupa el 50% del ancho de la página */
+  height: 30rem;
+  float: left; /* Hace que la imagen flote a la izquierda */
+  margin-right: 2rem; /* Espacio entre la imagen y el texto */
+}
+.product-info-container {
+  display: inline;
+  width: 46%;
+  border: 1.2px solid black;
+  border-radius: 1cap;
+  margin-left: 1rem; /* Agrega un margen izquierdo */
+  padding: 1rem; /* Agrega un espacio interno */
+}
+
+/* Estilo del título */
+.product-title {
+  height: fit-content;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  margin-top: 0; /* Elimina el margen superior para que el título esté pegado a la imagen */
+  overflow: hidden; /* Evita que el título se superponga a la imagen */
+  font-size: 1.8rem;
+}
+
+/* Estilo de la descripción */
+.product-description {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Estilo del precio */
+.product-price{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.button-container{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+/* Estilo del botón */
+.add-to-cart-button {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none;
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.add-to-cart-button:hover {
+  background-color: #0056b3; /* Color de fondo del botón al pasar el ratón */
+}
+
+.retiro1{
+  display: flex;
+  align-items: center;
+}
+
+.description-container{
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.linea{
+  width: 80%; /* Ocupa el 80% del ancho del contenedor padre */
+  margin: 0 auto; /* Centra la línea horizontalmente */
+  border-bottom: 2px solid black; /* Grosor y color de la línea */
+}
+
+</style>
