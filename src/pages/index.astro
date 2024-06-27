@@ -77,7 +77,6 @@
   .info{
     padding: 0px;
     margin: 0px;
-    width: 100%;
   }
 
   .envios, .mdp, .garantia {
@@ -94,11 +93,19 @@
   .servicios{
     display: flex;
   }
-  @media (max-width: 768px){
-    .servicios {
-      flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
-      align-items: center;    /* Centra horizontalmente los elementos */
-      justify-content: center; /* Centra verticalmente los elementos */  
+  @media (max-width: 768px) {
+  .servicios {
+    flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+    align-items: center;    /* Centra horizontalmente los elementos */
+    justify-content: center; /* Centra verticalmente los elementos */  
   }
+
+  .info {
+    text-align: center; /* Centra el texto horizontalmente */
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos (...) si el texto es demasiado largo */
+    width: 100%; /* Asegura que ocupe el ancho disponible */
   }
+}
 </style>
