@@ -121,42 +121,44 @@
         stroke: #fff; /* Ajusta el color del ícono */
     }
     
-      @media (max-width: 768px) {
-        .navbar {
-          flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
-          padding: 0.5rem; /* Reducir el padding para pantallas más pequeñas */
-        }
-    
-        .navbar-brand {
-          margin-bottom: 1rem; /* Añade margen inferior para separar del contenido principal */
-        }
-    
-        .navbar-content {
-          flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
-          align-items: center; /* Centra horizontalmente los elementos */
-        }
-    
-        .navbar-titles,
-        .navbar-actions {
-          width: 100%; /* Asegura que ocupen todo el ancho disponible */
-          display: flex;
-          justify-content: center; /* Centra horizontalmente los elementos */
-          margin-top: 0.5rem; /* Añade margen superior para separar del contenido principal */
-        }
-    
-        .navbar-nav {
-          flex-direction: column; /* Alinea los elementos verticalmente */
-          margin: 0; /* Elimina el margen de la lista */
-          padding: 0; /* Elimina el padding de la lista */
-        }
-    
-        .nav-item {
-          margin: 0.5rem 0; /* Ajusta el espacio entre elementos */
-        }
-    
-        .nav-link {
-          font-size: 0.9rem; /* Reducir el tamaño de fuente para pantallas más pequeñas */
-        }
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+        padding: 0.5rem; /* Reducir el padding para pantallas más pequeñas */
+        align-items: center; /* Centra los elementos horizontalmente */
       }
+    
+      .navbar-links {
+        margin-bottom: 0.5rem; /* Añade margen inferior para separar del contenido principal */
+      }
+    
+      .navbar-actions {
+        margin-top: 0.5rem; /* Añade margen superior para separar del contenido principal */
+      }
+    
+      .navbar-nav {
+        flex-direction: column; /* Alinea los elementos verticalmente */
+        margin: 0; /* Elimina el margen de la lista */
+        padding: 0; /* Elimina el padding de la lista */
+      }
+    
+      .nav-item {
+        margin: 0.5rem 0; /* Ajusta el espacio entre elementos */
+      }
+    
+      .nav-link {
+        font-size: 0.9rem; /* Reducir el tamaño de fuente para pantallas más pequeñas */
+        text-align: center; /* Centra el texto horizontalmente */
+      }
+    
+      .navbar-brand {
+        margin-bottom: 1rem; /* Añade margen inferior para separar del contenido principal */
+      }
+    
+      .navbar-actions .nav-item:first-child {
+        margin-right: auto; /* Empuja "Comprar" hacia la izquierda */
+      }
+}
+
 </style>
   
