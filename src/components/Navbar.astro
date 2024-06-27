@@ -120,5 +120,28 @@
         height: 1.5rem;
         stroke: #fff; /* Ajusta el color del ícono */
     }
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+        padding: 0.5rem; /* Reducir el padding para pantallas más pequeñas */
+      }
+  
+      .navbar-center {
+        justify-content: flex-start; /* Alinea los elementos al inicio */
+        margin-top: 1rem; /* Agrega margen superior en modo columna */
+      }
+  
+      .navbar-right {
+        margin-top: 1rem; /* Agrega margen superior en modo columna */
+      }
+  
+      .nav-item {
+        margin: 0.5rem 0; /* Ajusta el espacio entre elementos en modo columna */
+      }
+  
+      .nav-link {
+        font-size: 0.9rem; /* Reducir el tamaño de fuente para pantallas más pequeñas */
+      }
+  }
 </style>
   
