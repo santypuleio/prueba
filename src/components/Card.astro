@@ -115,5 +115,45 @@ const { img, href, title, body, slug, precio } = Astro.props;
     color: white;
     font-weight: 600;
   }
+
+  @media (max-width: 768px) {
+    .link-card {
+      max-width: calc(50% - 1rem); /* Reducir el ancho máximo de la tarjeta */
+      flex-basis: calc(50% - 1rem); /* Reducir la base flexible de la tarjeta */
+      height: auto; /* Altura automática para adaptarse al contenido */
+      margin-bottom: 1rem; /* Añadir margen inferior */
+    }
+  
+    .product-image {
+      height: 250px; /* Ajustar la altura de la imagen */
+    }
+  
+    .product-link {
+      padding: 0.5rem; /* Reducir el padding del enlace */
+    }
+  
+    .product-title {
+      font-size: 1rem; /* Reducir el tamaño del título */
+    }
+  
+    .product-body {
+      font-size: 0.9rem; /* Reducir el tamaño del cuerpo */
+      margin-left: 0; /* Alinear el texto al centro */
+      margin-right: 0;
+    }
+  
+    .card-buttons {
+      padding: 0.5rem; /* Reducir el padding de los botones */
+    }
+  
+    .more-info-button {
+      padding: 0.3rem 0.8rem; /* Reducir el padding del botón */
+      font-size: 0.8rem; /* Reducir el tamaño de la fuente del botón */
+    }
+  
+    .product-price {
+      font-size: medium; /* Ajustar el tamaño del precio */
+    }
+  }
   
 </style>
