@@ -118,43 +118,44 @@ const { img, href, title, body, slug, precio } = Astro.props;
 
   @media (max-width: 768px) {
     .link-card {
-      max-width: calc(40% - 1rem); /* Aumentar el ancho máximo de la tarjeta */
-      flex-basis: calc(40% - 1rem); /* Aumentar la base flexible de la tarjeta */
+      width: calc(45% - 1rem); /* Ancho de la tarjeta */
+      flex: 0 0 calc(45% - 1rem); /* Ancho fijo para la tarjeta */
+      max-width: calc(45% - 1rem); /* Ajuste máximo del ancho */
       height: auto; /* Altura automática para adaptarse al contenido */
-      margin-bottom: 1rem; /* Añadir margen inferior */
+      margin-bottom: 1rem; /* Margen inferior */
     }
   
     .product-image {
-      height: 200px; /* Ajustar la altura de la imagen */
-      object-fit: cover; /* Ajustar la imagen dentro del contenedor */
+      height: 200px; /* Altura de la imagen */
+      object-fit: cover; /* Ajuste de la imagen */
     }
   
     .product-link {
-      padding: 0.75rem; /* Reducir el padding del enlace */
+      padding: 0.75rem; /* Relleno del enlace */
     }
   
     .product-title {
-      font-size: 1rem; /* Reducir el tamaño del título */
+      font-size: 1rem; /* Tamaño de la fuente del título */
     }
   
     .product-body {
-      font-size: 0.85rem; /* Reducir el tamaño del cuerpo */
-      text-align: center; /* Centrar el texto */
-      margin-left: 0; /* Eliminar márgenes izquierdo y derecho */
-      margin-right: 0;
+      font-size: 0.85rem; /* Tamaño de la fuente del cuerpo */
+      text-align: center; /* Alineación del texto */
+      margin-left: 0; /* Margen izquierdo */
+      margin-right: 0; /* Margen derecho */
     }
   
     .card-buttons {
-      padding: 0.75rem; /* Reducir el padding de los botones */
+      padding: 0.75rem; /* Relleno de los botones */
     }
   
     .more-info-button {
-      padding: 0.3rem 0.8rem; /* Reducir el padding del botón */
-      font-size: 0.8rem; /* Reducir el tamaño de la fuente del botón */
+      padding: 0.3rem 0.8rem; /* Relleno del botón */
+      font-size: 0.8rem; /* Tamaño de la fuente del botón */
     }
   
     .product-price {
-      font-size: 1rem; /* Ajustar el tamaño del precio */
+      font-size: 1rem; /* Tamaño de la fuente del precio */
     }
   }
 </style>
