@@ -118,11 +118,12 @@ const { img, href, title, body, slug, precio } = Astro.props;
 
   @media (max-width: 768px) {
     .link-card {
-      width: calc(50% - 1rem); /* Ancho de la tarjeta */
-      flex: 0 0 calc(50% - 1rem); /* Ancho fijo para la tarjeta */
-      max-width: calc(50% - 1rem); /* Ajuste máximo del ancho */
+      width: calc(55% - 1rem); /* Aumentar el ancho de la tarjeta */
+      flex: 0 0 calc(55% - 1rem); /* Ancho fijo para la tarjeta */
+      max-width: calc(55% - 1rem); /* Ajuste máximo del ancho */
       height: auto; /* Altura automática para adaptarse al contenido */
       margin-bottom: 1rem; /* Margen inferior */
+      padding: 0.5rem; /* Reducir el padding general */
     }
   
     .product-image {
@@ -131,7 +132,7 @@ const { img, href, title, body, slug, precio } = Astro.props;
     }
   
     .product-link {
-      padding: 0.75rem; /* Relleno del enlace */
+      padding: 0.5rem; /* Reducir el padding del enlace */
     }
   
     .product-title {
@@ -141,12 +142,12 @@ const { img, href, title, body, slug, precio } = Astro.props;
     .product-body {
       font-size: 0.85rem; /* Tamaño de la fuente del cuerpo */
       text-align: center; /* Alineación del texto */
-      margin-left: 0; /* Margen izquierdo */
-      margin-right: 0; /* Margen derecho */
+      margin: 0; /* Eliminar márgenes */
     }
   
     .card-buttons {
-      padding: 0.75rem; /* Relleno de los botones */
+      padding: 0.3rem; /* Reducir el padding de los botones */
+      margin-top: 0.3rem; /* Reducir el margen superior de los botones */
     }
   
     .more-info-button {
@@ -156,7 +157,9 @@ const { img, href, title, body, slug, precio } = Astro.props;
   
     .product-price {
       font-size: 1rem; /* Tamaño de la fuente del precio */
+      margin-bottom: 0; /* Eliminar margen inferior del precio */
     }
   }
+
 
 </style>
