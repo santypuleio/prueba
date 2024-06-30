@@ -127,8 +127,9 @@ const { img, href, title, body, slug, precio } = Astro.props;
     }
   
     .product-image {
-      height: 200px; /* Altura de la imagen */
-      object-fit: cover; /* Ajuste de la imagen */
+      width: 100%; /* Ancho completo */
+      height: 200px; /* Altura fija para controlar la altura */
+      object-fit: contain; /* Ajuste de la imagen sin recortar */
     }
   
     .product-link {
@@ -160,5 +161,4 @@ const { img, href, title, body, slug, precio } = Astro.props;
       margin-bottom: 0; /* Eliminar margen inferior del precio */
     }
   }
-
 </style>
