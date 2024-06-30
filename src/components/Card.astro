@@ -118,8 +118,8 @@ const { img, href, title, body, slug, precio } = Astro.props;
 
   @media (max-width: 768px) {
     .link-card {
-      max-width: calc(45% - 1rem); /* Reducir el ancho máximo de la tarjeta */
-      flex-basis: calc(45% - 1rem); /* Reducir la base flexible de la tarjeta */
+      max-width: calc(40% - 1rem); /* Aumentar el ancho máximo de la tarjeta */
+      flex-basis: calc(40% - 1rem); /* Aumentar la base flexible de la tarjeta */
       height: auto; /* Altura automática para adaptarse al contenido */
       margin-bottom: 1rem; /* Añadir margen inferior */
     }
@@ -156,5 +156,5 @@ const { img, href, title, body, slug, precio } = Astro.props;
     .product-price {
       font-size: 1rem; /* Ajustar el tamaño del precio */
     }
-}
+  }
 </style>
