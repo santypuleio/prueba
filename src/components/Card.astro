@@ -118,18 +118,19 @@ const { img, href, title, body, slug, precio } = Astro.props;
 
   @media (max-width: 768px) {
     .link-card {
-      max-width: calc(50% - 1rem); /* Reducir el ancho máximo de la tarjeta */
-      flex-basis: calc(50% - 1rem); /* Reducir la base flexible de la tarjeta */
+      max-width: calc(45% - 1rem); /* Reducir el ancho máximo de la tarjeta */
+      flex-basis: calc(45% - 1rem); /* Reducir la base flexible de la tarjeta */
       height: auto; /* Altura automática para adaptarse al contenido */
       margin-bottom: 1rem; /* Añadir margen inferior */
     }
   
     .product-image {
-      height: 250px; /* Ajustar la altura de la imagen */
+      height: 200px; /* Ajustar la altura de la imagen */
+      object-fit: cover; /* Ajustar la imagen dentro del contenedor */
     }
   
     .product-link {
-      padding: 0.5rem; /* Reducir el padding del enlace */
+      padding: 0.75rem; /* Reducir el padding del enlace */
     }
   
     .product-title {
@@ -137,13 +138,14 @@ const { img, href, title, body, slug, precio } = Astro.props;
     }
   
     .product-body {
-      font-size: 0.9rem; /* Reducir el tamaño del cuerpo */
-      margin-left: 0; /* Alinear el texto al centro */
+      font-size: 0.85rem; /* Reducir el tamaño del cuerpo */
+      text-align: center; /* Centrar el texto */
+      margin-left: 0; /* Eliminar márgenes izquierdo y derecho */
       margin-right: 0;
     }
   
     .card-buttons {
-      padding: 0.5rem; /* Reducir el padding de los botones */
+      padding: 0.75rem; /* Reducir el padding de los botones */
     }
   
     .more-info-button {
@@ -152,9 +154,7 @@ const { img, href, title, body, slug, precio } = Astro.props;
     }
   
     .product-price {
-      font-size: medium; /* Ajustar el tamaño del precio */
+      font-size: 1rem; /* Ajustar el tamaño del precio */
     }
-  }
-
-  
+}
 </style>
