@@ -121,7 +121,7 @@ import Footer from "../components/Footer.astro";
                                         <button class="aumentar-cantidad" data-slug="${slug}">+</button>
                                         <button class="disminuir-cantidad" data-slug="${slug}">-</button>
                                     <div>
-                                    <p id="precio-total-producto-${producto.id}">Precio (total producto): $ ${precioProducto * cantidad}</p>
+                                    <p class="precio-total-del-producto" id="precio-total-producto-${producto.id}">Precio (total producto): $ ${precioProducto * cantidad}</p>
                                 </div>
                             </div>
                         </li>
@@ -372,10 +372,6 @@ import Footer from "../components/Footer.astro";
                 justify-content: center;
             }
     
-            .carrito-acciones-vaciar, .carrito-acciones-comprar {
-                width: 100%;
-            }
-    
             .carrito-acciones-total {
                 margin-right: 0;
             }
@@ -383,6 +379,9 @@ import Footer from "../components/Footer.astro";
             #total {
                 margin-left: 0;
                 text-align: center;
+            }
+            .precio-total-del-producto{
+                width: 100%;
             }
         }
 </style>
