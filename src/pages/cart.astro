@@ -340,43 +340,6 @@ import Footer from "../components/Footer.astro";
             font-size: 1.5em;
             color: #ff6f61;
         }
-            @media (max-width: 768px) {
-                .contenedor-carrito {
-                    width: 90%;
-                    padding: 15px;
-                }
-        
-                .carrito-vacio {
-                    font-size: 1em;
-                }
-        
-                .carrito-productos {
-                    margin: 10px 0;
-                }
-        
-                .carrito-acciones {
-                    flex-direction: column;
-                    gap: 10px;
-                }
-        
-                .carrito-acciones-izquierda, .carrito-acciones-derecha {
-                    width: 100%;
-                    justify-content: center;
-                }
-        
-                .carrito-acciones-vaciar, .carrito-acciones-comprar {
-                    width: 100%;
-                }
-        
-                .carrito-acciones-total {
-                    margin-right: 0;
-                }
-        
-                #total {
-                    margin-left: 0;
-                    text-align: center;
-                }
-            }
 </style>
 
 <style>
@@ -385,5 +348,42 @@ import Footer from "../components/Footer.astro";
         display: flex;
         justify-content: center;
         margin-top: 5rem;
+    }
+    @media (max-width: 768px) {
+        .contenedor-carrito {
+            width: 90%;
+            padding: 15px;
+        }
+
+        .carrito-vacio {
+            font-size: 1em;
+        }
+
+        .carrito-productos {
+            margin: 10px 0;
+        }
+
+        .carrito-acciones {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .carrito-acciones-izquierda, .carrito-acciones-derecha {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .carrito-acciones-vaciar, .carrito-acciones-comprar {
+            width: 100%;
+        }
+
+        .carrito-acciones-total {
+            margin-right: 0;
+        }
+
+        #total {
+            margin-left: 0;
+            text-align: center;
+        }
     }
 </style>
