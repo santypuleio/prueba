@@ -349,39 +349,40 @@ import Footer from "../components/Footer.astro";
         }
 
         @media (max-width: 768px) {
-            .botones-cantidad button {
-                font-size: 1.5em; /* Aumenta el tamaño de los botones + y - */
+            .contenedor-carrito {
+                width: 90%;
+                padding: 15px;
             }
-        
-            .borrar-un-producto {
-                font-size: 0.8em; /* Reduce el tamaño del botón de eliminar */
+    
+            .carrito-vacio {
+                font-size: 1em;
             }
-        
-            .carrito-acciones-vaciar {
-                font-size: 0.8em; /* Reduce el tamaño del botón Vaciar Carrito */
-                display: flex;
+    
+            .carrito-productos {
+                margin: 10px 0;
+            }
+    
+            .carrito-acciones {
+                flex-direction: column;
+                gap: 10px;
+            }
+    
+            .carrito-acciones-izquierda, .carrito-acciones-derecha {
+                width: 100%;
                 justify-content: center;
-                align-items: center;
             }
-        
+    
+            .carrito-acciones-vaciar, .carrito-acciones-comprar {
+                width: 100%;
+            }
+    
             .carrito-acciones-total {
-                flex-direction: column; /* Coloca el total y el botón Comprar ahora en columnas */
-                align-items: center;
-                margin-top: 10px; /* Ajusta el margen superior */
+                margin-right: 0;
             }
-        
-            .carrito-acciones-total p {
-                margin: 5px 0; /* Ajusta el margen de los elementos dentro de carrito-acciones-total */
-            }
-        
+    
             #total {
-                margin-left: 0; /* Asegura que el total esté centrado */
+                margin-left: 0;
                 text-align: center;
             }
-        
-            .carrito-acciones-comprar {
-                width: 100%; /* Asegura que el botón Comprar ahora ocupe el ancho completo */
-            }
         }
-
 </style>
