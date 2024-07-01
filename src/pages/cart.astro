@@ -349,40 +349,34 @@ import Footer from "../components/Footer.astro";
         }
 
         @media (max-width: 768px) {
-            .contenedor-carrito {
-                width: 90%;
-                padding: 15px;
+            .botones-cantidad button {
+                font-size: 1.2em; /* Aumenta el tamaño del texto de los botones + y - */
             }
-    
-            .carrito-vacio {
-                font-size: 1em;
-            }
-    
-            .carrito-productos {
-                margin: 10px 0;
-            }
-    
-            .carrito-acciones {
-                flex-direction: column;
-                gap: 10px;
-            }
-    
-            .carrito-acciones-izquierda, .carrito-acciones-derecha {
-                width: 100%;
+        
+            .carrito-acciones-vaciar {
+                font-size: 0.8em; /* Reduce el tamaño del botón Vaciar Carrito */
+                display: flex;
                 justify-content: center;
+                align-items: center;
             }
-    
-            .carrito-acciones-vaciar, .carrito-acciones-comprar {
-                width: 100%;
-            }
-    
+        
             .carrito-acciones-total {
-                margin-right: 0;
+                flex-direction: column; /* Coloca el total y el botón Comprar ahora en columnas */
+                align-items: center;
+                margin-top: 10px; /* Ajusta el margen superior */
             }
-    
+        
+            .carrito-acciones-total p {
+                margin: 5px 0; /* Ajusta el margen de los elementos dentro de carrito-acciones-total */
+            }
+        
             #total {
-                margin-left: 0;
+                margin-left: 0; /* Asegura que el total esté centrado */
                 text-align: center;
+            }
+        
+            .carrito-acciones-comprar {
+                width: 100%; /* Asegura que el botón Comprar ahora ocupe el ancho completo */
             }
         }
 </style>
