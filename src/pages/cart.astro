@@ -388,8 +388,17 @@ import Footer from "../components/Footer.astro";
                 width: 100%;
             }
 
-            .carrito-acciones-comprar{
-                width: 100%;
-            }
+                .carrito-acciones-comprar {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5px; /* Espacio entre el texto y el icono */
+                }
+            
+                .carrito-acciones-comprar svg {
+                    width: 18px; /* Ajusta el tamaño del icono según sea necesario */
+                    height: 18px;
+                }
         }
 </style>
